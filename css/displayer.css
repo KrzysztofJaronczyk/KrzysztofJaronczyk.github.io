@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:22% 0%}
+    50%{background-position:79% 100%}
+    100%{background-position:22% 0%}
+}
+@-moz-keyframes AnimationName {
+    0%{background-position:22% 0%}
+    50%{background-position:79% 100%}
+    100%{background-position:22% 0%}
+}
+@keyframes AnimationName {
+    0%{background-position:22% 0%}
+    50%{background-position:79% 100%}
+    100%{background-position:22% 0%}
+}
+
+
+.container2{
+    width: 100%;
+    height: 100vh;
+    background: linear-gradient(145deg, #b79527, #18619d, #18909d, #c3a324);
+    background-size: 800% 800%;
+    -webkit-animation: AnimationName 30s ease infinite;
+    -moz-animation: AnimationName 30s ease infinite;
+    animation: AnimationName 30s ease infinite;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+ }
+
+.swiper {
+    width: 80%;
+    height:fit-content;
+    border-radius: 10px;
+  }
+
+  @media (max-width: 767px) {
+    .swiper {
+      width: 100%; /* Full width */
+      border-radius: 0; /* Remove border radius */
+    }
+  }
+  
+.swider-wrapper{
+    position: relative;
+    max-width: 48rem;
+    margin: 0 auto;
+}
+
+.swiper-slide{
+    display: flex;
+    overflow-x: auto;
+    aspect-ratio: 16/9;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    box-shadow: 0 1.5rem 3rem -0.75rem hsla(0, 0%, 0, 0.25);
+    border: 6px solid #fdf9ff;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.swiper-slide img{
+   max-width: 100%;
+   height: auto;
+   cursor: pointer;
+}
+
+.swiper .swiper-button-prev,
+.swiper .swiper-button-next{
+    color:#fff;
+}
+
+.swiper .swiper-pagination-bullet-active{
+    background: #fff;
+}
+
+.swiper-pagination a:hover{
+    opacity: 1;
+}
