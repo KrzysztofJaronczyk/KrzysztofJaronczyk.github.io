@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta html-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="../css/displayer.css">
+</head>
+
+<body>
+  <div class="container2">
+    <div class="swiper">
+      <!-- Additional required wrapper -->
+      <div class="swiper-wrapper"
+        onclick="window.location.href='https://github.com/KrzysztofJaronczyk/VioRentals-FilmsPlatform'">
+        <!-- Slides -->
+        <div class="swiper-slide"><img src="../images/bikerental/1.webp" alt="picture"></div>
+        <div class="swiper-slide"><img src="../images/bikerental/2.webp" alt=""></div>
+        <div class="swiper-slide"><img src="../images/bikerental/3.webp" alt=""></div>
+      </div>
+      <!-- If we need pagination -->
+      <div class="swiper-pagination"></div>
+
+      <!-- If we need navigation buttons -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <script>
+    const swiper = new Swiper('.swiper', {
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false,
+      },
+      loop: true,
+
+      // If we need pagination
+      pagination: {
+        el: '.swiper-pagination',
+        clickable: true,
+      },
+
+      // Navigation arrows
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+  </script>
+</body>
+
+</html>
