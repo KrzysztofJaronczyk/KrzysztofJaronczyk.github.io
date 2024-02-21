@@ -835,6 +835,13 @@ h3.my-profession {
 	.home .home-img {
 		display: none;
 	}
+
+	.about .about-content .skills .skill-item .skill-percent {
+		display: none;
+	}
+	.about .about-content .skills .skill-item h5 {
+		font-size: 0.8rem;
+	}
 }
 
 @media (max-width: 767px) {
@@ -882,4 +889,9 @@ h3.my-profession {
 		transform: translate(-50%, -20%);
 		opacity: 0.2;
 	}
+}
+
+.fa-github {
+	color: #000;
+	font-size: 1.5rem;
 }
