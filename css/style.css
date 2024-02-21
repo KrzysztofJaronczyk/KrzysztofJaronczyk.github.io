@@ -856,9 +856,28 @@ h3.my-profession {
 		flex: 0 0 100%;
 		max-width: 100%;
 	}
+	.header__bg-icon-one {
+		left: 6em;
+		bottom: 8em;
+		width: 10%;
+	}
+	.header__bg-icon-two {
+		display: block;
+		top: 10em;
+		left: 35%;
+		width: 120px;
+		animation: rotate-left 55s infinite linear;
+	}
 }
 
-#bubble-wrapper {
+@media (max-width: 576px) {
+	.header__bg-icon-one,
+	.header__bg-icon-two {
+		display: none !important;
+	}
+}
+
+.bubble-wrapper {
 	height: 100%;
 	width: 100%;
 	position: fixed;
@@ -894,4 +913,52 @@ h3.my-profession {
 .fa-github {
 	color: #000;
 	font-size: 1.5rem;
+}
+
+.header__bg-icon-one {
+	left: 6em;
+	bottom: 8em;
+	width: 10%;
+	animation: rotate-left 140s infinite linear;
+}
+.header__bg-icon-two {
+	display: block;
+	top: 6em;
+	left: 35%;
+	width: 120px;
+	animation: rotate-left 55s infinite linear;
+}
+
+@keyframes rotate-right {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(360deg);
+	}
+}
+@keyframes rotate-left {
+	from {
+		transform: rotate(0deg);
+	}
+	to {
+		transform: rotate(-360deg);
+	}
+}
+.header__bg-icon-one,
+.header__bg-icon-two {
+	position: absolute;
+	opacity: 0.15;
+	z-index: -5;
+}
+
+.about-one {
+	left: 80% !important;
+	top: 10% !important;
+}
+
+.about-two {
+	top: 80% !important;
+	left: 90% !important;
+	animation: rotate-right 140s infinite linear;
 }
