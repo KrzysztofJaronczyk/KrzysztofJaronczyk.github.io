@@ -817,6 +817,9 @@ h3.my-profession {
 		display: block;
 		margin-left: 0;
 	}
+	.bubble-wrapper {
+		display: none;
+	}
 }
 
 @media (max-width: 991px) {
@@ -962,4 +965,10 @@ h3.my-profession {
 	top: 80% !important;
 	left: 90% !important;
 	animation: rotate-right 140s infinite linear;
+}
+
+.cv {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
 }
