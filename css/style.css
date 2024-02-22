@@ -879,6 +879,15 @@ h3.my-profession {
 	.header__bg-icon-two {
 		display: none !important;
 	}
+	h3.my-profession {
+		font-size: 22px;
+	}
+	.cv {
+		display: block !important;
+	}
+	.cv a {
+		margin-bottom: 32px;
+	}
 }
 
 .bubble-wrapper {
