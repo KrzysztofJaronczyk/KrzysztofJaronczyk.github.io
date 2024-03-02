@@ -150,6 +150,7 @@ ul {
 
 .btn:hover {
 	background: var(--text-black-900);
+	color: var(--bg-black-900);
 	transform: scale(1.05);
 }
 
@@ -685,8 +686,17 @@ h3.my-profession {
 }
 .portfolio .portfolio-item h3 {
 	margin: auto;
+	display: block;
+	text-align: center;
 	width: fit-content;
 	padding-top: 1em;
+	color: var(--text-black-900);
+}
+
+.portfolio .portfolio-item h3 a {
+	display: flex;
+	align-items: center;
+	color: #3772ff;
 }
 
 /* contact */
@@ -924,8 +934,9 @@ h3.my-profession {
 }
 
 .fa-github {
-	color: #000;
-	font-size: 1.5rem;
+	color: var(--text-black-900);
+	margin-right: 0.5rem;
+	font-size: 1.6rem;
 }
 
 .header__bg-icon-one {
