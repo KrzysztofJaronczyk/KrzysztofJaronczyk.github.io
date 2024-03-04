@@ -577,6 +577,11 @@ h3.my-profession {
 }
 
 /* service */
+
+.service{
+	z-index: 122;
+	overflow: hidden;
+}
 .container {
 	padding-bottom: 40px;
 }
@@ -991,4 +996,41 @@ h3.my-profession {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-around;
+}
+#following-gradient {
+	position: absolute;
+	/* background: linear-gradient(90deg, #ff4b2b, #ff416c); */
+	background: var(--skin-color);
+	height: 500px;
+	width: 500px;
+	aspect-ratio: 1;
+	border-radius: 50%;
+	z-index: -3;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	animation: spin linear 10s infinite;
+	overflow: hidden;
+}
+@keyframes spin {
+	0% {
+		transform: translate(-50%, -50%) rotate(0deg) scale(1);
+	}
+
+	50% {
+		transform: translate(-50%, -50%) rotate(180deg) scale(1, 1.5);
+	}
+
+	100% {
+		transform: translate(-50%, -50%) rotate(360deg) scale(1);
+	}
+}
+
+#blur {
+	left: -20px;
+	width: 120%;
+	height: 100%;
+	position: absolute;
+	z-index: -2;
+	backdrop-filter: blur(200px);
 }
