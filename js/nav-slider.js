@@ -1,12 +1,3 @@
-// typing animation
-
-var typed = new Typed('.typing', {
-	strings: ['', 'Web Developer', 'Freelancer', '', 'C# Developer', '', 'Student', '', 'Book Reader', ''],
-	typeSpeed: 100,
-	backSpeed: 60,
-	loop: true,
-})
-
 const nav = document.querySelector('.nav'),
 	navList = nav.querySelectorAll('li'),
 	totalNavList = navList.length,
@@ -65,6 +56,14 @@ document.querySelector('.hire-me').addEventListener('click', function () {
 	addBackSection(sectionIndex)
 })
 
+document.querySelector('.logo a').addEventListener('click', function () {
+	const sectionIndex = this.getAttribute('data-section-index')
+	showSection(this)
+	updateNav(this)
+	removeBackSection()
+	addBackSection(sectionIndex)
+})
+
 const navTogglerBtn = document.querySelector('.nav-toggler'),
 	aside = document.querySelector('.aside')
 navTogglerBtn.addEventListener('click', () => {
@@ -77,30 +76,3 @@ function asideSectionTogglerBtn() {
 		allSection[i].classList.toggle('open')
 	}
 }
-// Function to create and animate bubble
-const animateBubble = (wrapperId, x) => {
-	const wrapper = document.querySelector(wrapperId)
-	const bubble = document.createElement('div')
-	bubble.className = 'bubble'
-	bubble.style.left = `${x}px`
-	wrapper.appendChild(bubble)
-	setTimeout(() => wrapper.removeChild(bubble), 2000)
-}
-
-// Separate event listeners for different behaviors or wrappers
-window.onmousemove = e => {
-	animateBubble('#wrapper1', e.clientX) // For first wrapper
-	animateBubble('#wrapper2', e.clientX) // For second wrapper, can adjust to differentiate if needed
-}
-
-const follower = document.querySelector('#following-gradient')
-
-document.addEventListener('mousemove', e => {
-	follower.animate(
-		{
-			left: `${e.clientX}px`,
-			top: `${e.clientY}px`,
-		},
-		{ duration: 3000, fill: 'forwards' }
-	)
-})

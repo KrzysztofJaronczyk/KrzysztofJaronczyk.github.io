@@ -286,6 +286,33 @@ ul {
 	display: block;
 }
 
+.aside .nav li {
+	position: relative;
+}
+
+.aside .nav li::before,
+.aside .nav li::after {
+	content: '';
+	position: absolute;
+	width: 0;
+	bottom: 0;
+	border-bottom: 2px solid var(--skin-color);
+	transition: width 0.3s ease;
+}
+
+.aside .nav li::before {
+	right: 50%;
+}
+
+.aside .nav li::after {
+	left: 50%;
+}
+
+.aside .nav li:hover::before,
+.aside .nav li:hover::after {
+	width: 50%;
+}
+
 .aside .nav li a {
 	font-size: 16px;
 	font-weight: 600;
@@ -578,8 +605,7 @@ h3.my-profession {
 
 /* service */
 
-.service{
-	z-index: 122;
+.service {
 	overflow: hidden;
 }
 .container {
