@@ -1,17 +1,25 @@
-//  toggle style switcher
-
 const styleSwitcherToggle = document.querySelector(".style-switcher-toggler");
-styleSwitcherToggle.addEventListener("click", () => {
-    document.querySelector(".style-switcher").classList.toggle("open");
-})
+const styleSwitcher = document.querySelector(".style-switcher");
 
-// hide style -switcher on scroll
-window.addEventListener("scroll", () => {
-    if(document.querySelector(".style-switcher").classList.contains("open")){
-        document.querySelector(".style-switcher").classList.remove("open");
+const closeStyleSwitcher = () => {
+    if (styleSwitcher.classList.contains("open")) {
+        styleSwitcher.classList.remove("open");
     }
-})
+};
 
+styleSwitcherToggle.addEventListener("click", (event) => {
+    event.stopPropagation(); // Prevents the click event from propagating to the document
+    styleSwitcher.classList.toggle("open");
+});
+
+document.addEventListener("click", (event) => {
+    const isClickInsideStyleSwitcher = styleSwitcher.contains(event.target);
+    const isClickOnToggle = styleSwitcherToggle.contains(event.target);
+
+    if (!isClickInsideStyleSwitcher && !isClickOnToggle) {
+        closeStyleSwitcher();
+    }
+});
 
 // Theme Color
 const alternateStyles = document.querySelectorAll(".alternate-style");
