@@ -415,7 +415,7 @@ h3.my-profession {
 
 .about .about-content .about-text {
 	flex: 0 0 100%;
-	max-width: 60%;
+	max-width: 199%;
 }
 
 .about .about-content .about-text h3 {
@@ -700,11 +700,16 @@ h3.my-profession {
 	max-width: 50%;
 }
 
+.portfolio .portfolio-item:hover .portfolio-item-inner {
+	transform: scale(1.05);
+}
+
 .portfolio .portfolio-item-inner {
 	border: 6px solid var(--bg-black-100);
 	border-radius: 10px;
 	overflow: hidden;
 	cursor: pointer;
+	transition: transform 0.3s ease;
 }
 
 .portfolio .portfolio-item-inner .portfolio-img img {
@@ -783,7 +788,7 @@ h3.my-profession {
 	line-height: 25px;
 	color: var(--text-black-700);
 	font-weight: 600;
-	transition: letter-spacing 0.3s ease	;
+	transition: letter-spacing 0.3s ease;
 }
 
 /* form */
@@ -890,7 +895,12 @@ h3.my-profession {
 	}
 
 	.about .about-content .skills .skill-item .skill-percent {
-		display: none;
+		top: 2px;
+		left: 0;
+	}
+	.about .about-content .skills .skill-item{
+		margin-bottom: 30px;
+	
 	}
 	.about .about-content .skills .skill-item h5 {
 		font-size: 0.8rem;
@@ -921,6 +931,11 @@ h3.my-profession {
 		width: 120px;
 		animation: rotate-left 55s infinite linear;
 	}
+
+	#following-gradient {
+		width: 300px !important;
+		height: 300px !important;
+	}
 }
 
 @media (max-width: 576px) {
@@ -936,6 +951,9 @@ h3.my-profession {
 	}
 	.cv a {
 		margin-bottom: 32px;
+	}
+	#following-gradient {
+		display: none;
 	}
 }
 
@@ -1061,7 +1079,7 @@ h3.my-profession {
 }
 
 .gradient-container {
-	position: absolute;
+	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100%;
