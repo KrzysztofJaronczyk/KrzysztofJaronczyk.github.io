@@ -1,78 +1,69 @@
-const nav = document.querySelector('.nav'),
-	navList = nav.querySelectorAll('li'),
-	totalNavList = navList.length,
-	allSection = document.querySelectorAll('.section'),
-	totalSection = allSection.length
-for (let i = 0; i < totalNavList; i++) {
-	removeBackSection()
-	const a = navList[i].querySelector('a')
-	a.addEventListener('click', function () {
-		for (let j = 0; j < totalNavList; j++) {
-			if (navList[j].querySelector('a').classList.contains('active')) {
-				// allSection[j].classList.add('back-section');
-				addBackSection(j)
-			}
-			navList[j].querySelector('a').classList.remove('active')
-		}
-		this.classList.add('active')
-		showSection(this)
-		if (window.innerWidth < 1200) {
-			asideSectionTogglerBtn()
-		}
-	})
-}
-function removeBackSection() {
-	for (let i = 0; i < totalSection; i++) {
-		allSection[i].classList.remove('back-section')
-	}
-}
+document.addEventListener('DOMContentLoaded', function() {
+    const nav = document.querySelector('.nav'),
+        navList = nav.querySelectorAll('li'),
+        allSection = document.querySelectorAll('.section'),
+        aside = document.querySelector('.aside'),
+        navTogglerBtn = document.querySelector('.nav-toggler');
+    let sectionHistory = [];
 
-function addBackSection(num) {
-	allSection[num].classList.add('back-section')
-}
+    function init() {
+        let currentHash = location.hash ? location.hash.split('#')[1] : 'home';
+        activateSection(currentHash);
+    }
 
-function showSection(element) {
-	for (let i = 0; i < totalSection; i++) {
-		allSection[i].classList.remove('active')
-	}
-	const target = element.getAttribute('href').split('#')[1]
-	document.querySelector('#' + target).classList.add('active')
-}
-function updateNav(element) {
-	for (let i = 0; i < totalNavList; i++) {
-		navList[i].querySelector('a').classList.remove('active')
-		const target = element.getAttribute('href').split('#')[1]
-		if (target === navList[i].querySelector('a').getAttribute('href').split('#')[1]) {
-			navList[i].querySelector('a').classList.add('active')
-		}
-	}
-}
+    function manageBackSection() {
+        allSection.forEach(section => section.classList.remove('back-section'));
+        if (sectionHistory.length > 1) {
+            const lastSectionId = sectionHistory[sectionHistory.length - 2];
+            document.getElementById(lastSectionId).classList.add('back-section');
+        }
+    }
 
-document.querySelector('.hire-me').addEventListener('click', function () {
-	const sectionIndex = this.getAttribute('data-section-index')
-	showSection(this)
-	updateNav(this)
-	removeBackSection()
-	addBackSection(sectionIndex)
-})
+    function showSection(targetId) {
+        allSection.forEach(section => section.classList.remove('active'));
+        const targetSection = document.getElementById(targetId);
+        targetSection.classList.add('active');
+        updateHistory(targetId);
+    }
 
-document.querySelector('.logo a').addEventListener('click', function () {
-	const sectionIndex = this.getAttribute('data-section-index')
-	showSection(this)
-	updateNav(this)
-	removeBackSection()
-	addBackSection(sectionIndex)
-})
+    function updateHistory(targetId) {
+        if (sectionHistory[sectionHistory.length - 1] !== targetId) {
+            sectionHistory.push(targetId);
+        }
+        manageBackSection();
+    }
 
-const navTogglerBtn = document.querySelector('.nav-toggler'),
-	aside = document.querySelector('.aside')
-navTogglerBtn.addEventListener('click', () => {
-	asideSectionTogglerBtn()
-})
-function asideSectionTogglerBtn() {
-	aside.classList.toggle('open')
-	navTogglerBtn.classList.toggle('open')
-	for (let i = 0; i < totalSection; i++) {
-		allSection[i].classList.toggle('open')
-	}
-}
+    function updateNav(targetId) {
+        navList.forEach(item => {
+            const a = item.querySelector('a');
+            a.classList.remove('active');
+            if (a.getAttribute('href').includes(targetId)) {
+                a.classList.add('active');
+            }
+        });
+    }
+
+    function activateSection(targetId) {
+        updateNav(targetId);
+        showSection(targetId);
+    }
+
+    navList.forEach(item => {
+        item.querySelector('a').addEventListener('click', function () {
+            const targetId = this.getAttribute('href').split('#')[1];
+            activateSection(targetId);
+        });
+    });
+
+    navTogglerBtn.addEventListener('click', () => {
+        aside.classList.toggle('open');
+        navTogglerBtn.classList.toggle('open');
+    });
+
+    window.addEventListener('hashchange', function() {
+        let currentHash = location.hash ? location.hash.split('#')[1] : 'home';
+        activateSection(currentHash);
+    });
+
+    init();
+});
