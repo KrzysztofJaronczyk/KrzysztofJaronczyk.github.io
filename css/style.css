@@ -762,7 +762,8 @@ h3.my-profession {
 }
 
 .contact .contact-info-item:hover p {
-	letter-spacing: 1px;
+	line-height: 35px;
+	font-size: 18px;
 }
 .contact .contact-info-item .icon {
 	display: inline-block;
@@ -788,7 +789,7 @@ h3.my-profession {
 	line-height: 25px;
 	color: var(--text-black-700);
 	font-weight: 600;
-	transition: letter-spacing 0.3s ease;
+	transition: line-height 0.3s ease, font-size 0.3s ease;
 }
 
 /* form */
