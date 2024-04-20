@@ -24,6 +24,8 @@ document.addEventListener('DOMContentLoaded', function() {
         const targetSection = document.getElementById(targetId);
         targetSection.classList.add('active');
         updateHistory(targetId);
+        aside.classList.remove('open');
+        navTogglerBtn.classList.remove('open');
     }
 
     function updateHistory(targetId) {
